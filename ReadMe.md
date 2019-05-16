@@ -1,7 +1,7 @@
 ### command
 
 * 前提
-  - centosがpullされていること
+  - 動かしたいソースをsrc配下に入れる。
 
 * イメージのビルド
   - sample-rubyディレクトリ配下に入って下記を実行
@@ -10,7 +10,7 @@
      ```
 * 起動
   ``` cmd
-   $ docker run -it sample-ruby /bin/bash --login
+   $  docker run -v ${pwd}/src:/opt/app-root/src -it sample-ruby /bin/bash
   ```
 
 * 残作業
