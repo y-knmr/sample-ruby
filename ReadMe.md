@@ -1,17 +1,25 @@
-### command
+### about sanmple-ruby
+
+* Windows上でrubyを動かすためのイメージです。
+  - rubyコマンド、bundleコマンドが実行できます。
 
 * 前提
-  - 動かしたいソースをsrc配下に入れる。
+   - centosのイメージが存在すること
+      - centosのイメージがない場合は下記を実行しておく。
+         ``` cmd
+            $ docker pull centos
+         ```
+   - Windows10 Proの場合は、これらのファイルがC:\Temp配下に入れておく。
+     - Windows10 Homeの場合、使っているツールも異なるが…なぜかC:\Users\xxxじゃないとダメというわけわからないっぷり
+        - しかもMSにそそのかされてアカウント作っちゃうとフォルダ名が…（いまはここで挫折している。おうちで。）
 
 * イメージのビルド
   - sample-rubyディレクトリ配下に入って下記を実行
      ``` cmd
-     $ docker build ./ -t sample-ruby
+     $ docker build -t sample_ruby .
      ```
 * 起動
   ``` cmd
-   $  docker run -v ${pwd}/src:/opt/app-root/src -it sample-ruby /bin/bash
+   $  docker run -v ${pwd}/src:/opt/app-root/src -it --name sample_ruby sample_ruby /bin/bash --login
   ```
-
-* 残作業
-  - volumeのマウント
+   > src配下を起動時オプションでvolume指定する。
