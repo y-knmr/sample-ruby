@@ -10,8 +10,7 @@
             $ docker pull centos
          ```
    - Windows10 Proの場合は、これらのファイルがC:\Temp配下に入れておく。
-     - Windows10 Homeの場合、使っているツールも異なるが…なぜかC:\Users\xxxじゃないとダメというわけわからないっぷり
-        - しかもMSにそそのかされてアカウント作っちゃうとフォルダ名が…（いまはここで挫折している。おうちで。）
+     - Windows10 Homeの場合、使っているツールも異なるが…なぜかC:\Users\xxxじゃないとダメ
 
 * イメージのビルド
   - sample-rubyディレクトリ配下に入って下記を実行
@@ -23,3 +22,9 @@
    $  docker run -v ${pwd}/src:/opt/app-root/src -it --name sample_ruby sample_ruby /bin/bash --login
   ```
    > src配下を起動時オプションでvolume指定する。
+
+
+* メモ
+  - centos/rubyのイメージを使ったものの、文字コードの設定ができなかったので使うのをやめました。
+    - rootのユーザの操作ができるようにすればたぶんいける
+  - イチからごりごりやるやつ（今やっているパターン）は、bundle installができないことでしばらく悩んでいました。
